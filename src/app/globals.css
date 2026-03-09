@@ -4,34 +4,32 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
-:root {
-  --color-primary: #0e43e1;
-  --color-primary-dark: #0d2137;
-  --color-accent: #2e79ff;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  color: #1c2b42;
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-navy-800 hover:bg-navy-900 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
   }
   .btn-outline {
-    @apply border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold py-3 px-8 rounded-lg transition-all duration-300;
+    @apply border border-white/40 text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-lg transition-all duration-300 backdrop-blur-sm;
+  }
+  .btn-gold {
+    @apply bg-gold-400 hover:bg-gold-500 text-navy-900 font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
   }
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+    @apply text-3xl md:text-4xl font-bold text-center mb-4 tracking-tight;
   }
   .section-subtitle {
     @apply text-gray-500 text-center mb-12 text-lg;
   }
   .card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden;
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100;
   }
 }
