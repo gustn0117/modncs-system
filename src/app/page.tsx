@@ -110,7 +110,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gold-400/5 rounded-3xl blur-2xl" />
                 <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/10">
-                  <Image src="/모든CS시스템 로고.jpg" alt="모든CS시스템" width={400} height={300} className="w-full h-auto rounded-xl" />
+                  <Image src="/logo.jpg" alt="모든CS시스템" width={400} height={300} className="w-full h-auto rounded-xl" />
                 </div>
               </div>
             </div>

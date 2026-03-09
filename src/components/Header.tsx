@@ -42,7 +42,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <Image src="/모든CS시스템 로고.jpg" alt="모든CS시스템" width={180} height={60} className="h-12 w-auto" priority />
+            <Image src="/logo.jpg" alt="모든CS시스템" width={180} height={60} className="h-12 w-auto" priority />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
