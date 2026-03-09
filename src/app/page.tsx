@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 const services = [
@@ -58,79 +57,66 @@ const features = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Centered */}
       <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold-400/10 rounded-full blur-[100px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-navy-700/20 rounded-full blur-[120px]" />
+          <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-blue-500/8 rounded-full blur-[120px]" />
+          <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-gold-400/8 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-navy-700/15 rounded-full blur-[150px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(15,23,42,0.4)_100%)]" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 py-24 md:py-36 relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="bg-gold-400/15 text-gold-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-gold-400/20 backdrop-blur-sm">여성기업인증</span>
-                <span className="bg-white/5 text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">캐논코리아 공식 인증 대리점</span>
+        <div className="max-w-5xl mx-auto px-4 py-28 md:py-40 relative text-center">
+          <div className="flex items-center justify-center gap-3 mb-8 flex-wrap">
+            <span className="bg-gold-400/15 text-gold-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-gold-400/20 backdrop-blur-sm">여성기업인증</span>
+            <span className="bg-white/5 text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">캐논코리아 공식 인증 대리점</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-6 tracking-tight">
+            세종 · 대전 · 충청권
+            <br />
+            <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">복합기 전문</span> 파트너
+          </h1>
+          <p className="text-lg md:text-xl text-white/50 mb-10 leading-relaxed max-w-2xl mx-auto">
+            렌탈부터 구매, 유지보수까지 한 곳에서.
+            <br />
+            캐논 공식 인증 대리점 모든CS시스템이 함께합니다.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-bold py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
+              무료 상담 신청
+            </Link>
+            <Link href="/rental" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-4 px-10 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
+              렌탈 서비스 보기
+            </Link>
+          </div>
+          <div className="mt-14 flex items-center justify-center gap-8 text-sm text-white/40 flex-wrap">
+            {['무료 방문 상담', '정품 토너 공급', '정기 점검 서비스'].map((text) => (
+              <div key={text} className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                </svg>
+                {text}
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.15] mb-6 tracking-tight">
-                세종 · 대전 · 충청권
-                <br />
-                <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">복합기 전문</span> 파트너
-              </h1>
-              <p className="text-lg md:text-xl text-white/50 mb-10 leading-relaxed max-w-lg">
-                렌탈부터 구매, 유지보수까지 한 곳에서.
-                <br />
-                캐논 공식 인증 대리점 모든CS시스템이 함께합니다.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-bold py-4 px-9 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40">
-                  무료 상담 신청
-                </Link>
-                <Link href="/rental" className="border border-white/20 text-white hover:bg-white/10 font-semibold py-4 px-9 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
-                  렌탈 서비스 보기
-                </Link>
-              </div>
-              <div className="mt-12 flex items-center gap-6 text-sm text-white/40">
-                {['무료 방문 상담', '정품 토너 공급', '정기 점검 서비스'].map((text) => (
-                  <div key={text} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                    </svg>
-                    {text}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hidden lg:flex justify-center">
-              <div className="relative">
-                <div className="absolute -inset-8 bg-gradient-to-br from-gold-400/10 to-blue-500/10 rounded-[2rem] blur-3xl" />
-                <div className="relative bg-white/[0.03] backdrop-blur-sm rounded-[2rem] p-12 border border-white/[0.08]">
-                  <Image src="/logo-icon.png" alt="모든CS시스템" width={300} height={300} className="w-64 h-auto drop-shadow-2xl" />
-                  <div className="text-center mt-6">
-                    <p className="text-2xl font-extrabold text-white tracking-tight">모든CS시스템</p>
-                    <p className="text-xs text-white/40 mt-1 tracking-widest">PRINTER & COPIER SPECIALIST</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white border-b border-gray-100 relative">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {features.map((f) => (
-              <div key={f.label} className="text-center group">
-                <div className="text-4xl md:text-5xl font-extrabold bg-gradient-to-b from-navy-800 to-navy-600 bg-clip-text text-transparent mb-2 group-hover:from-gold-500 group-hover:to-gold-600 transition-all duration-500">
-                  {f.number}
+      <section className="relative -mt-10 z-10 pb-10">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-xl shadow-navy-900/5 border border-gray-100 p-8 md:p-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {features.map((f, i) => (
+                <div key={f.label} className={`text-center ${i < features.length - 1 ? 'md:border-r md:border-gray-100' : ''}`}>
+                  <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-navy-800 to-navy-600 bg-clip-text text-transparent mb-1">
+                    {f.number}
+                  </div>
+                  <div className="text-sm font-bold text-navy-700 mb-0.5">{f.label}</div>
+                  <div className="text-xs text-gray-400">{f.desc}</div>
                 </div>
-                <div className="text-base font-semibold text-navy-700 mb-1">{f.label}</div>
-                <div className="text-sm text-gray-400">{f.desc}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -138,12 +124,15 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-24 bg-gray-50/80">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="section-title text-navy-900">서비스 안내</h2>
-          <p className="section-subtitle">모든CS시스템이 제공하는 전문 서비스를 만나보세요</p>
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-gold-500 tracking-wider uppercase mb-3 block">Our Services</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-4">서비스 안내</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">모든CS시스템이 제공하는 전문 서비스를 만나보세요</p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="group bg-white rounded-2xl border border-gray-100 hover:border-transparent p-7 transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/5 hover:-translate-y-1">
-                <div className={`w-13 h-13 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-5 text-white shadow-lg group-hover:scale-110 transition-transform duration-300`} style={{width: '3.25rem', height: '3.25rem'}}>
+                <div className={`bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-5 text-white shadow-lg group-hover:scale-110 transition-transform duration-300`} style={{width: '3.25rem', height: '3.25rem'}}>
                   {service.icon}
                 </div>
                 <h3 className="text-lg font-bold text-navy-900 mb-2">{service.title}</h3>
@@ -163,8 +152,11 @@ export default function Home() {
       {/* Why Us Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="section-title text-navy-900">왜 모든CS시스템인가요?</h2>
-          <p className="section-subtitle">고객님의 비즈니스를 위한 최적의 선택</p>
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-gold-500 tracking-wider uppercase mb-3 block">Why Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-4">왜 모든CS시스템인가요?</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">고객님의 비즈니스를 위한 최적의 선택</p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -203,18 +195,19 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gold-400/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px]" />
+          <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-gold-400/8 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-blue-500/8 rounded-full blur-[120px]" />
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative">
+          <span className="text-sm font-semibold text-gold-400 tracking-wider uppercase mb-4 block">Contact Us</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
             복합기 관련 고민, 지금 바로 상담받으세요
           </h2>
-          <p className="text-lg text-white/50 mb-10">
+          <p className="text-lg text-white/50 mb-10 max-w-xl mx-auto">
             무료 방문 상담 및 맞춤 견적을 제공해 드립니다
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 font-bold py-4 px-10 rounded-xl hover:from-gold-500 hover:to-gold-600 transition-all text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40">
+            <Link href="/inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 font-bold py-4 px-10 rounded-xl hover:from-gold-500 hover:to-gold-600 transition-all text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
               무료 상담 신청하기
             </Link>
             <a href="tel:010-6603-3432" className="border border-white/20 text-white font-bold py-4 px-10 rounded-xl hover:bg-white/10 transition-all text-lg backdrop-blur-sm">

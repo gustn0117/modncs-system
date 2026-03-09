@@ -12,17 +12,24 @@ export default function InquiryPage() {
 
   return (
     <>
-      <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">구매 문의</h1>
-          <p className="text-lg text-white/50 max-w-2xl">
+      <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-gold-400/8 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] bg-blue-500/8 rounded-full blur-[120px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative">
+          <span className="text-sm font-semibold text-gold-400 tracking-wider uppercase mb-4 block">Contact</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight">구매 문의</h1>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
             복합기 렌탈, 구매, 솔루션 도입 등 무엇이든 편하게 문의해주세요.
+            <br className="hidden md:block" />
             빠르고 정확하게 안내드리겠습니다.
           </p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
 
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-24 bg-gray-50/80">
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid lg:grid-cols-5 gap-10">
             <div className="lg:col-span-2 space-y-6">
@@ -45,12 +52,15 @@ export default function InquiryPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-navy-900 rounded-2xl p-6 text-white">
-                <h3 className="font-bold text-lg mb-2">빠른 상담 원하시나요?</h3>
-                <p className="text-white/50 text-sm mb-4">전화 한 통이면 바로 상담 가능합니다.</p>
-                <a href="tel:010-6603-3432" className="block text-center bg-gold-400 text-navy-900 font-bold py-3 rounded-xl hover:bg-gold-500 transition">
-                  지금 전화하기
-                </a>
+              <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-2xl p-6 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full blur-[60px]" />
+                <div className="relative">
+                  <h3 className="font-bold text-lg mb-2">빠른 상담 원하시나요?</h3>
+                  <p className="text-white/50 text-sm mb-4">전화 한 통이면 바로 상담 가능합니다.</p>
+                  <a href="tel:010-6603-3432" className="block text-center bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 font-bold py-3 rounded-xl hover:from-gold-500 hover:to-gold-600 transition-all shadow-lg shadow-gold-400/25">
+                    지금 전화하기
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -139,7 +149,7 @@ export default function InquiryPage() {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-navy-900 text-white font-bold py-4 rounded-xl hover:bg-navy-800 transition-all text-lg"
+                      className="w-full bg-gradient-to-r from-navy-900 to-navy-800 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-navy-900/20 transition-all duration-300 text-lg"
                     >
                       문의 접수하기
                     </button>

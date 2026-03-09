@@ -34,25 +34,35 @@ const products = [
 export default function PurchasePage() {
   return (
     <>
-      <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">복합기 구매</h1>
-          <p className="text-lg text-white/50 max-w-2xl">
+      <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/3 w-[400px] h-[400px] bg-violet-500/8 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] bg-gold-400/8 rounded-full blur-[120px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative">
+          <span className="text-sm font-semibold text-gold-400 tracking-wider uppercase mb-4 block">Purchase</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight">복합기 구매</h1>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
             캐논코리아 공식 인증 대리점에서 정품 복합기를 최적의 가격에 만나보세요.
+            <br className="hidden md:block" />
             설치부터 교육까지 원스톱 서비스를 제공합니다.
           </p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
 
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-24 bg-gray-50/80">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="section-title text-navy-900">추천 제품</h2>
-          <p className="section-subtitle">캐논 정품 복합기 라인업</p>
+          <div className="text-center mb-14">
+            <span className="text-sm font-semibold text-gold-500 tracking-wider uppercase mb-3 block">Products</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-4">추천 제품</h2>
+            <p className="text-gray-500 text-lg">캐논 정품 복합기 라인업</p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {products.map((p) => (
-              <div key={p.name} className="bg-white rounded-2xl border border-gray-100 p-6 hover:border-navy-200 hover:shadow-md transition-all">
+              <div key={p.name} className="bg-white rounded-2xl border border-gray-100 p-6 hover:border-transparent hover:shadow-xl hover:shadow-navy-900/5 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
-                  <span className="bg-navy-900 text-gold-400 text-xs font-medium px-3 py-1 rounded-full">{p.tag}</span>
+                  <span className="bg-gradient-to-r from-navy-900 to-navy-800 text-gold-400 text-xs font-semibold px-3 py-1 rounded-full">{p.tag}</span>
                   <span className="text-sm text-gray-400">{p.category}</span>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-8 mb-6 flex items-center justify-center border border-gray-100">
@@ -71,7 +81,7 @@ export default function PurchasePage() {
                 </div>
                 <Link
                   href="/inquiry"
-                  className="block text-center bg-navy-900 text-white py-3 rounded-xl font-semibold hover:bg-navy-800 transition"
+                  className="block text-center bg-gradient-to-r from-navy-900 to-navy-800 text-white py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-navy-900/20 transition-all duration-300"
                 >
                   견적 문의
                 </Link>
@@ -81,14 +91,17 @@ export default function PurchasePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-navy-900 rounded-3xl p-10 md:p-16 text-white text-center">
-            <h2 className="text-3xl font-bold mb-4 tracking-tight">원하는 모델을 못 찾으셨나요?</h2>
-            <p className="text-white/50 mb-8 text-lg">캐논 전 모델 취급 가능합니다. 문의 주시면 맞춤 견적을 보내드립니다.</p>
-            <Link href="/inquiry" className="inline-block bg-gold-400 text-navy-900 font-bold py-4 px-10 rounded-xl hover:bg-gold-500 transition">
-              맞춤 견적 요청
-            </Link>
+          <div className="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 rounded-3xl p-10 md:p-16 text-white text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gold-400/10 rounded-full blur-[100px]" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold mb-4 tracking-tight">원하는 모델을 못 찾으셨나요?</h2>
+              <p className="text-white/50 mb-8 text-lg">캐논 전 모델 취급 가능합니다. 문의 주시면 맞춤 견적을 보내드립니다.</p>
+              <Link href="/inquiry" className="inline-block bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 font-bold py-4 px-10 rounded-xl hover:from-gold-500 hover:to-gold-600 transition-all shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
+                맞춤 견적 요청
+              </Link>
+            </div>
           </div>
         </div>
       </section>

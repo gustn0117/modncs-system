@@ -46,21 +46,27 @@ const solutions = [
 export default function SolutionPage() {
   return (
     <>
-      <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">솔루션상품</h1>
-          <p className="text-lg text-white/50 max-w-2xl">
+      <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-emerald-500/8 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-gold-400/8 rounded-full blur-[120px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative">
+          <span className="text-sm font-semibold text-gold-400 tracking-wider uppercase mb-4 block">Solutions</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight">솔루션상품</h1>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
             단순한 인쇄를 넘어, 업무 효율을 극대화하는 스마트 솔루션을 제공합니다.
           </p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
 
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-24 bg-gray-50/80">
         <div className="max-w-7xl mx-auto px-4 space-y-8">
           {solutions.map((sol, i) => (
-            <div key={sol.title} className={`bg-white rounded-2xl border border-gray-100 p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start hover:border-navy-200 hover:shadow-md transition-all ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div key={sol.title} className={`bg-white rounded-2xl border border-gray-100 p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start hover:border-transparent hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-300 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
               <div className="shrink-0">
-                <div className="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center text-gold-400">
+                <div className="w-16 h-16 bg-gradient-to-br from-navy-900 to-navy-800 rounded-2xl flex items-center justify-center text-gold-400 shadow-lg">
                   {sol.icon}
                 </div>
               </div>
