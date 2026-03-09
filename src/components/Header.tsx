@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -14,35 +14,52 @@ const menuItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b border-gray-100">
-      <div className="bg-navy-900 text-white/80 text-sm">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'}`}>
+      <div className="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white/80 text-sm">
         <div className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 flex-wrap text-xs sm:text-sm">
             <span className="flex items-center gap-1.5">
-              <span className="w-1 h-1 rounded-full bg-gold-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
               여성기업인증
             </span>
-            <span className="hidden sm:inline text-white/30">|</span>
+            <span className="hidden sm:inline text-white/20">|</span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1 h-1 rounded-full bg-gold-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
               세종 · 대전 · 충청권
             </span>
-            <span className="hidden sm:inline text-white/30">|</span>
-            <span className="text-gold-300 font-medium">캐논코리아 공식 인증 대리점</span>
+            <span className="hidden sm:inline text-white/20">|</span>
+            <span className="text-gold-300 font-semibold">캐논코리아 공식 인증 대리점</span>
           </div>
           <div className="flex items-center gap-4 text-xs sm:text-sm">
-            <a href="tel:010-6603-3432" className="hover:text-white transition">010-6603-3432</a>
-            <a href="tel:044-868-4874" className="hover:text-white transition">044-868-4874</a>
+            <a href="tel:010-6603-3432" className="hover:text-white transition flex items-center gap-1">
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              010-6603-3432
+            </a>
+            <a href="tel:044-868-4874" className="hover:text-white transition flex items-center gap-1">
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              044-868-4874
+            </a>
           </div>
         </div>
       </div>
 
       <nav className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <Image src="/logo.jpg" alt="모든CS시스템" width={180} height={60} className="h-12 w-auto" priority />
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <Image src="/logo-icon.png" alt="모든CS시스템" width={44} height={44} className="h-11 w-auto group-hover:scale-105 transition-transform" priority />
+            <div className="flex flex-col">
+              <span className="text-navy-900 font-extrabold text-lg leading-tight tracking-tight">모든CS시스템</span>
+              <span className="text-[10px] text-navy-400 font-medium tracking-wider">PRINTER & COPIER SPECIALIST</span>
+            </div>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -50,14 +67,15 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 text-navy-700 font-medium hover:text-navy-900 hover:bg-navy-50 rounded-lg transition-all duration-200 text-[15px]"
+                className="relative px-4 py-2 text-navy-700 font-medium hover:text-navy-900 rounded-lg transition-all duration-200 text-[15px] group"
               >
                 {item.name}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gold-400 rounded-full group-hover:w-2/3 transition-all duration-300" />
               </Link>
             ))}
             <Link
               href="/inquiry"
-              className="ml-4 bg-navy-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-navy-800 transition-all duration-200 text-sm"
+              className="ml-4 bg-gradient-to-r from-navy-900 to-navy-800 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:shadow-navy-900/20 transition-all duration-300 text-sm"
             >
               무료 상담 신청
             </Link>
@@ -79,7 +97,7 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="lg:hidden border-t border-gray-100 pb-4">
+          <div className="lg:hidden border-t border-gray-100 pb-4 animate-fadeIn">
             {menuItems.map((item) => (
               <Link
                 key={item.name}

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -6,10 +7,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <h3 className="text-white text-2xl font-bold mb-2">모든CS시스템</h3>
-            <p className="text-sm leading-relaxed mb-5 text-gray-500">
-              ModnCS SYSTEM / PRINTER &amp; COPIER SPECIALIST
-            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <Image src="/logo-icon.png" alt="모든CS시스템" width={36} height={36} className="h-9 w-auto brightness-0 invert opacity-80" />
+              <div>
+                <h3 className="text-white text-xl font-bold leading-tight">모든CS시스템</h3>
+                <p className="text-[10px] text-gray-500 tracking-wider">PRINTER & COPIER SPECIALIST</p>
+              </div>
+            </div>
             <div className="space-y-2.5 text-sm">
               <div className="flex items-center gap-2.5">
                 <svg className="w-4 h-4 text-gold-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
