@@ -1,28 +1,18 @@
 import Link from 'next/link'
+import { supabase } from '@/lib/supabase/client'
+import ProductGrid from '@/components/ProductGrid'
+import type { Product } from '@/lib/types'
 
-const plans = [
-  {
-    name: '베이직',
-    price: '29,000',
-    period: '월',
-    features: ['흑백 복합기', '월 3,000매 포함', '토너 무상 공급', '분기별 정기점검', '전화 기술지원'],
-    popular: false,
-  },
-  {
-    name: '스탠다드',
-    price: '49,000',
-    period: '월',
-    features: ['컬러 복합기', '월 5,000매 포함', '토너 무상 공급', '월 1회 정기점검', '당일 출장 A/S', '팩스 기능 포함'],
-    popular: true,
-  },
-  {
-    name: '프리미엄',
-    price: '79,000',
-    period: '월',
-    features: ['고속 컬러 복합기', '월 10,000매 포함', '토너 무상 공급', '주 1회 정기점검', '4시간 내 긴급 출동', '보안인쇄 솔루션', '클라우드 연동'],
-    popular: false,
-  },
-]
+async function getRentalProducts(): Promise<Product[]> {
+  const { data } = await supabase
+    .from('products')
+    .select('*')
+    .or('type.eq.rental,type.eq.both')
+    .eq('is_active', true)
+    .order('sort_order')
+    .order('created_at', { ascending: false })
+  return data || []
+}
 
 const benefits = [
   { title: '초기 비용 제로', desc: '장비 구매 비용 없이 최신 복합기를 바로 사용할 수 있습니다.', gradient: 'from-emerald-500 to-teal-500', icon: (
@@ -39,7 +29,9 @@ const benefits = [
   ) },
 ]
 
-export default function RentalPage() {
+export default async function RentalPage() {
+  const products = await getRentalProducts()
+
   return (
     <>
       <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white py-24 overflow-hidden">
@@ -82,53 +74,20 @@ export default function RentalPage() {
       <section className="py-24 bg-gray-50/80">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
-            <span className="text-sm font-semibold text-gold-500 tracking-wider uppercase mb-3 block">Pricing</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-4">렌탈 요금제</h2>
-            <p className="text-gray-500 text-lg">비즈니스 규모에 맞는 최적의 플랜을 선택하세요</p>
+            <span className="text-sm font-semibold text-gold-500 tracking-wider uppercase mb-3 block">Products</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-4">렌탈 가능 제품</h2>
+            <p className="text-gray-500 text-lg">비즈니스 규모에 맞는 최적의 복합기를 선택하세요</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
-                  plan.popular
-                    ? 'bg-gradient-to-br from-navy-900 to-navy-800 text-white shadow-2xl shadow-navy-900/20 scale-[1.02] relative ring-2 ring-gold-400/30'
-                    : 'bg-white text-navy-900 border border-gray-100 hover:shadow-xl hover:shadow-navy-900/5'
-                }`}
-              >
-                {plan.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 text-sm font-bold px-5 py-1.5 rounded-full shadow-lg">
-                    가장 인기
-                  </span>
-                )}
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-extrabold">{plan.price}</span>
-                  <span className={`text-sm ${plan.popular ? 'text-white/50' : 'text-gray-400'}`}>원 / {plan.period}</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm">
-                      <svg className={`w-4 h-4 shrink-0 ${plan.popular ? 'text-gold-400' : 'text-emerald-500'}`} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/inquiry"
-                  className={`block text-center py-3.5 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-gold-400 to-gold-500 text-navy-900 hover:from-gold-500 hover:to-gold-600 shadow-lg shadow-gold-400/25'
-                      : 'bg-navy-900 text-white hover:bg-navy-800'
-                  }`}
-                >
-                  상담 신청
-                </Link>
-              </div>
-            ))}
-          </div>
+          {products.length > 0 ? (
+            <ProductGrid products={products} />
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-gray-400 mb-6">현재 렌탈 가능 제품을 준비 중입니다.</p>
+              <Link href="/inquiry" className="inline-block bg-gradient-to-r from-navy-900 to-navy-800 text-white font-bold py-3 px-8 rounded-xl hover:shadow-lg transition-all">
+                문의하기
+              </Link>
+            </div>
+          )}
           <p className="text-center text-sm text-gray-400 mt-10">
             * 실제 요금은 장비 모델 및 계약 조건에 따라 달라질 수 있습니다. 정확한 견적은 상담을 통해 안내드립니다.
           </p>

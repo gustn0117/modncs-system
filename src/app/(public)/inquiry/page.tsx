@@ -1,13 +1,79 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { Suspense, useState, useEffect, FormEvent } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { supabase } from '@/lib/supabase/client'
 
 export default function InquiryPage() {
-  const [submitted, setSubmitted] = useState(false)
+  return (
+    <Suspense>
+      <InquiryContent />
+    </Suspense>
+  )
+}
 
-  const handleSubmit = (e: FormEvent) => {
+function InquiryContent() {
+  const searchParams = useSearchParams()
+  const productSlug = searchParams.get('product')
+
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [productName, setProductName] = useState('')
+  const [productId, setProductId] = useState<string | null>(null)
+
+  const [form, setForm] = useState({
+    company_name: '',
+    contact_name: '',
+    phone: '',
+    email: '',
+    inquiry_type: '',
+    message: '',
+  })
+
+  useEffect(() => {
+    if (productSlug) {
+      supabase.from('products').select('id, name').eq('slug', productSlug).single()
+        .then(({ data }) => {
+          if (data) {
+            setProductName(data.name)
+            setProductId(data.id)
+            setForm(prev => ({ ...prev, message: `[${data.name}] 관련 문의합니다.\n\n` }))
+          }
+        })
+    }
+  }, [productSlug])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError('')
+    setLoading(true)
+
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          product_id: productId,
+        }),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        const data = await res.json()
+        setError(data.error || '오류가 발생했습니다.')
+      }
+    } catch {
+      setError('서버 오류가 발생했습니다.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -75,7 +141,7 @@ export default function InquiryPage() {
                   <h3 className="text-2xl font-bold text-navy-900 mb-3">문의가 접수되었습니다!</h3>
                   <p className="text-gray-500 mb-6">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => { setSubmitted(false); setForm({ company_name: '', contact_name: '', phone: '', email: '', inquiry_type: '', message: '' }) }}
                     className="text-navy-700 font-semibold hover:text-navy-900"
                   >
                     다시 작성하기
@@ -84,52 +150,35 @@ export default function InquiryPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-gray-100">
                   <h3 className="text-xl font-bold text-navy-900 mb-6">문의 양식</h3>
+                  {productName && (
+                    <div className="mb-5 p-3 bg-navy-50 rounded-xl">
+                      <p className="text-sm text-navy-700 font-medium">관련 상품: {productName}</p>
+                    </div>
+                  )}
                   <div className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-medium text-navy-800 mb-2">회사명 *</label>
-                        <input
-                          type="text"
-                          required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition"
-                          placeholder="회사명을 입력하세요"
-                        />
+                        <input name="company_name" value={form.company_name} onChange={handleChange} type="text" required className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition" placeholder="회사명을 입력하세요" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-navy-800 mb-2">담당자명 *</label>
-                        <input
-                          type="text"
-                          required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition"
-                          placeholder="담당자명을 입력하세요"
-                        />
+                        <input name="contact_name" value={form.contact_name} onChange={handleChange} type="text" required className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition" placeholder="담당자명을 입력하세요" />
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-medium text-navy-800 mb-2">연락처 *</label>
-                        <input
-                          type="tel"
-                          required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition"
-                          placeholder="010-0000-0000"
-                        />
+                        <input name="phone" value={form.phone} onChange={handleChange} type="tel" required className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition" placeholder="010-0000-0000" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-navy-800 mb-2">이메일</label>
-                        <input
-                          type="email"
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition"
-                          placeholder="email@company.com"
-                        />
+                        <input name="email" value={form.email} onChange={handleChange} type="email" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition" placeholder="email@company.com" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-navy-800 mb-2">문의 유형 *</label>
-                      <select
-                        required
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition bg-white"
-                      >
+                      <select name="inquiry_type" value={form.inquiry_type} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition bg-white">
                         <option value="">선택해주세요</option>
                         <option value="rental">복합기 렌탈</option>
                         <option value="purchase">복합기 구매</option>
@@ -140,18 +189,15 @@ export default function InquiryPage() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-navy-800 mb-2">문의 내용 *</label>
-                      <textarea
-                        required
-                        rows={5}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition resize-none"
-                        placeholder="문의하실 내용을 자세히 적어주세요. (필요 수량, 용도, 예산 등)"
-                      />
+                      <textarea name="message" value={form.message} onChange={handleChange} required rows={5} className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition resize-none" placeholder="문의하실 내용을 자세히 적어주세요. (필요 수량, 용도, 예산 등)" />
                     </div>
+                    {error && <p className="text-red-500 text-sm text-center">{error}</p>}
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-navy-900 to-navy-800 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-navy-900/20 transition-all duration-300 text-lg"
+                      disabled={loading}
+                      className="w-full bg-gradient-to-r from-navy-900 to-navy-800 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-navy-900/20 transition-all duration-300 text-lg disabled:opacity-50"
                     >
-                      문의 접수하기
+                      {loading ? '접수 중...' : '문의 접수하기'}
                     </button>
                     <p className="text-xs text-gray-400 text-center">
                       접수 후 1영업일 이내에 담당자가 연락드립니다.
