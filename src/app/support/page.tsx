@@ -55,7 +55,7 @@ export default function SupportPage() {
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
               </div>
-              <h3 className="font-bold text-lg text-navy-900 mb-1">박부장 휴대폰</h3>
+              <h3 className="font-bold text-lg text-navy-900 mb-1">휴대폰</h3>
               <p className="text-navy-700 font-bold text-xl">010-6603-3432</p>
             </a>
             <a href="tel:044-868-4874" className="group p-8 rounded-2xl bg-gray-50 border border-gray-100 text-center hover:bg-white hover:border-transparent hover:shadow-xl hover:shadow-navy-900/5 hover:-translate-y-1 transition-all duration-300">

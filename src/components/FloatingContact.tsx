@@ -21,7 +21,7 @@ export default function FloatingContact() {
                 </svg>
               </div>
               <div>
-                <p className="font-semibold text-navy-900 text-sm">박부장</p>
+                <p className="font-semibold text-navy-900 text-sm">휴대폰</p>
                 <p className="text-navy-700 font-bold">010-6603-3432</p>
               </div>
             </a>

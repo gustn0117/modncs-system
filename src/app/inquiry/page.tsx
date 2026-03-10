@@ -38,7 +38,7 @@ export default function InquiryPage() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-gray-400 mb-1">담당자</p>
-                    <p className="font-semibold text-navy-900">박부장</p>
+                    <p className="font-semibold text-navy-900">담당자</p>
                     <a href="tel:010-6603-3432" className="text-navy-700 font-bold text-lg hover:text-navy-900">010-6603-3432</a>
                   </div>
                   <div className="border-t border-gray-100 pt-4">
