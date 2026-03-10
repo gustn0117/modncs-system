@@ -47,13 +47,6 @@ const services = [
   },
 ]
 
-const features = [
-  { number: '15+', label: '년 업력', desc: '오랜 경험과 노하우' },
-  { number: '1,000+', label: '고객사', desc: '다양한 기업 파트너' },
-  { number: '24h', label: '긴급 대응', desc: '신속한 A/S 처리' },
-  { number: '100%', label: '정품 보증', desc: '캐논 공식 인증' },
-]
-
 export default function Home() {
   return (
     <>
@@ -102,24 +95,6 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
 
-      {/* Stats Section */}
-      <section className="relative -mt-10 z-10 pb-10">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-white rounded-2xl shadow-xl shadow-navy-900/5 border border-gray-100 p-8 md:p-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {features.map((f, i) => (
-                <div key={f.label} className={`text-center ${i < features.length - 1 ? 'md:border-r md:border-gray-100' : ''}`}>
-                  <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-b from-navy-800 to-navy-600 bg-clip-text text-transparent mb-1">
-                    {f.number}
-                  </div>
-                  <div className="text-sm font-bold text-navy-700 mb-0.5">{f.label}</div>
-                  <div className="text-xs text-gray-400">{f.desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section className="py-24 bg-gray-50/80">
