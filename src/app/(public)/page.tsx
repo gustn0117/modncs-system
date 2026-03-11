@@ -61,10 +61,10 @@ export default async function Home() {
             src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1920&h=1080&fit=crop"
             alt=""
             fill
-            className="object-cover opacity-15"
+            className="object-cover opacity-25"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-900/50 to-navy-800/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-900/40 to-navy-800/70" />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-28 md:py-36 relative">
           <div className="max-w-3xl">
@@ -296,7 +296,7 @@ export default async function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-navy-950/90" />
+          <div className="absolute inset-0 bg-navy-950/80" />
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative text-white">
           <span className="text-sm font-semibold text-gold-400 tracking-wider uppercase mb-4 block">Contact Us</span>
