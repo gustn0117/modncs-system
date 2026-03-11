@@ -20,7 +20,7 @@ const services = [
     desc: '초기 비용 부담 없이 최신 복합기를 합리적인 월 렌탈료로 이용하세요.',
     href: '/rental',
     gradient: 'from-blue-500 to-cyan-500',
-    img: 'https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=400&h=250&fit=crop',
+    img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=250&fit=crop',
     icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4',
   },
   {
@@ -28,7 +28,7 @@ const services = [
     desc: '캐논 공식 인증 대리점에서 정품 복합기를 최적의 가격에 구매하세요.',
     href: '/purchase',
     gradient: 'from-violet-500 to-purple-500',
-    img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=250&fit=crop',
+    img: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=400&h=250&fit=crop',
     icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z',
   },
   {
@@ -58,7 +58,7 @@ export default async function Home() {
       <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1920&h=1080&fit=crop"
+            src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1920&h=1080&fit=crop"
             alt=""
             fill
             className="object-cover opacity-25"
@@ -228,8 +228,8 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=800&h=600&fit=crop"
-                  alt="모던 오피스 환경"
+                  src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&h=600&fit=crop"
+                  alt="복합기 프린팅 서비스"
                   width={800}
                   height={600}
                   className="object-cover"
@@ -291,7 +291,7 @@ export default async function Home() {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&h=600&fit=crop"
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=600&fit=crop"
             alt=""
             fill
             className="object-cover"
