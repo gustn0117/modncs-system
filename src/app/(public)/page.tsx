@@ -58,13 +58,13 @@ export default async function Home() {
       <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop"
+            src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1920&h=1080&fit=crop"
             alt=""
             fill
-            className="object-cover opacity-10"
+            className="object-cover opacity-15"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-900/60 to-navy-800/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-900/50 to-navy-800/80" />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-28 md:py-36 relative">
           <div className="max-w-3xl">
@@ -228,7 +228,7 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=600&fit=crop"
+                  src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=800&h=600&fit=crop"
                   alt="모던 오피스 환경"
                   width={800}
                   height={600}
@@ -291,7 +291,7 @@ export default async function Home() {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&h=600&fit=crop"
+            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&h=600&fit=crop"
             alt=""
             fill
             className="object-cover"
