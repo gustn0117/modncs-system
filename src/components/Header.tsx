@@ -55,10 +55,10 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <Image src="/logo-icon.png" alt="모든CS시스템" width={44} height={44} className="h-11 w-auto group-hover:scale-105 transition-transform" priority />
+            <Image src="/logo-icon.png" alt="모든CS시스템" width={48} height={48} className="h-12 w-auto group-hover:scale-105 transition-transform" priority />
             <div className="flex flex-col">
-              <span className="text-navy-900 font-extrabold text-lg leading-tight tracking-tight">모든CS시스템</span>
-              <span className="text-[10px] text-navy-400 font-medium tracking-wider">PRINTER & COPIER SPECIALIST</span>
+              <span className="text-navy-950 font-black text-xl leading-tight tracking-tight">모든CS시스템</span>
+              <span className="text-[10px] text-navy-500 font-semibold tracking-wider">PRINTER & COPIER SPECIALIST</span>
             </div>
           </Link>
 
@@ -67,7 +67,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative px-4 py-2 text-navy-700 font-medium hover:text-navy-900 rounded-lg transition-all duration-200 text-[15px] group"
+                className="relative px-4 py-2 text-navy-800 font-bold hover:text-navy-950 rounded-lg transition-all duration-200 text-[15px] group"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gold-400 rounded-full group-hover:w-2/3 transition-all duration-300" />
