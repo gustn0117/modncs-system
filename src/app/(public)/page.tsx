@@ -55,20 +55,20 @@ export default async function Home() {
 
   return (
     <>
-      {/* Hero - 밝은 톤 + 움직이는 배경 */}
-      <section className="relative bg-gradient-to-br from-slate-800 via-slate-700 to-navy-800 text-white overflow-hidden min-h-[600px] flex items-center">
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-red-950 via-red-900 to-navy-800 text-white overflow-hidden min-h-[480px] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1920&h=1080&fit=crop"
             alt=""
             fill
-            className="object-cover opacity-30 animate-hero-slide"
+            className="object-cover opacity-25 animate-hero-slide"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-800/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-red-950/80 via-red-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-red-950/50 via-transparent to-red-950/20" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 relative w-full">
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-20 relative w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-8 flex-wrap">
               <span className="bg-gold-400/20 text-gold-300 text-xs font-bold px-4 py-1.5 rounded-full border border-gold-400/25 backdrop-blur-sm">여성기업인증</span>
@@ -229,8 +229,8 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&h=600&fit=crop"
-                  alt="복합기 프린팅 서비스"
+                  src="https://sterling-digital.com/wp-content/uploads/2021/08/imagerunner-advance-dx-c3800srs-img4-675x450-1.jpg"
+                  alt="Canon imageRUNNER ADVANCE DX"
                   width={800}
                   height={600}
                   className="object-cover"
@@ -343,7 +343,7 @@ export default async function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-navy-950/75" />
+          <div className="absolute inset-0 bg-red-950/80" />
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative text-white">
           <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">
