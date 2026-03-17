@@ -20,7 +20,6 @@ const services = [
     title: '복합기 렌탈',
     desc: '초기 비용 부담 없이 최신 복합기를 합리적인 월 렌탈료로 이용하세요.',
     href: '/rental',
-    gradient: 'from-blue-500 to-cyan-500',
     img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=250&fit=crop',
     icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4',
   },
@@ -28,7 +27,6 @@ const services = [
     title: '복합기 구매',
     desc: '캐논 공식 인증 대리점에서 정품 복합기를 최적의 가격에 구매하세요.',
     href: '/purchase',
-    gradient: 'from-violet-500 to-purple-500',
     img: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=400&h=250&fit=crop',
     icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z',
   },
@@ -36,7 +34,6 @@ const services = [
     title: '솔루션상품',
     desc: '문서 관리, 보안 인쇄, 클라우드 연동 등 스마트 솔루션을 제공합니다.',
     href: '/solution',
-    gradient: 'from-emerald-500 to-teal-500',
     img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop',
     icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
   },
@@ -44,7 +41,7 @@ const services = [
     title: '고객센터',
     desc: '전문 기술진이 신속한 A/S와 정기 점검 서비스를 제공합니다.',
     href: '/support',
-    gradient: 'from-amber-500 to-orange-500',
+    gradient: 'from-gray-700 to-gray-800',
     img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=250&fit=crop',
     icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z',
   },
@@ -176,7 +173,7 @@ export default async function Home() {
                 <div className="relative h-40 overflow-hidden">
                   <Image src={service.img} alt={service.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className={`absolute bottom-3 left-3 w-10 h-10 bg-gradient-to-br ${service.gradient} rounded-lg flex items-center justify-center text-white shadow-lg`}>
+                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-navy-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center text-white shadow-lg">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={service.icon}/>
                     </svg>
@@ -208,12 +205,12 @@ export default async function Home() {
               <p className="text-gray-600 text-lg mb-10 font-medium">고객님의 비즈니스를 위한 최적의 선택, 15년 이상의 경험으로 증명합니다.</p>
               <div className="space-y-6">
                 {[
-                  { title: '캐논 공식 인증 대리점', desc: '캐논코리아로부터 공식 인증받은 대리점으로 정품 제품과 정식 A/S를 보장합니다.', gradient: 'from-blue-500 to-cyan-500', iconPath: 'M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' },
-                  { title: '여성기업인증 기업', desc: '여성기업인증을 받은 신뢰할 수 있는 기업으로, 공공기관 납품 실적을 보유하고 있습니다.', gradient: 'from-rose-500 to-pink-500', iconPath: 'M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z' },
-                  { title: '지역 밀착 서비스', desc: '세종, 대전, 충청권에 특화된 전문 매장으로 빠른 방문 서비스와 긴급 대응이 가능합니다.', gradient: 'from-emerald-500 to-teal-500', iconPath: 'M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' },
+                  { title: '캐논 공식 인증 대리점', desc: '캐논코리아로부터 공식 인증받은 대리점으로 정품 제품과 정식 A/S를 보장합니다.', iconPath: 'M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' },
+                  { title: '여성기업인증 기업', desc: '여성기업인증을 받은 신뢰할 수 있는 기업으로, 공공기관 납품 실적을 보유하고 있습니다.', iconPath: 'M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z' },
+                  { title: '지역 밀착 서비스', desc: '세종, 대전, 충청권에 특화된 전문 매장으로 빠른 방문 서비스와 긴급 대응이 가능합니다.', iconPath: 'M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center shrink-0 shadow-lg`}>
+                    <div className="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center shrink-0">
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d={item.iconPath} clipRule="evenodd"/>
                       </svg>
@@ -229,8 +226,8 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="https://sterling-digital.com/wp-content/uploads/2021/08/imagerunner-advance-dx-c3800srs-img4-675x450-1.jpg"
-                  alt="Canon imageRUNNER ADVANCE DX"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
+                  alt="모던 오피스 환경"
                   width={800}
                   height={600}
                   className="object-cover"
@@ -238,8 +235,8 @@ export default async function Home() {
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gold-400 to-gold-500 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-navy-900" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                     </svg>
                   </div>
