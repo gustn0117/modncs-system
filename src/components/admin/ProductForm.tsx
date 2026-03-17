@@ -30,6 +30,43 @@ export default function ProductForm({ product }: Props) {
     sort_order: product?.sort_order || 0,
   })
   const [loading, setLoading] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const [preview, setPreview] = useState<string>(product?.image_url || '')
+
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Preview
+    setPreview(URL.createObjectURL(file))
+    setUploading(true)
+
+    try {
+      const formData = new FormData()
+      formData.append('file', file)
+
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (res.ok) {
+        const { url } = await res.json()
+        setForm(prev => ({ ...prev, image_url: url }))
+        setPreview(url)
+        toast.success('이미지 업로드 완료')
+      } else {
+        const err = await res.json()
+        toast.error(err.error || '업로드 실패')
+        setPreview(form.image_url)
+      }
+    } catch {
+      toast.error('업로드 중 오류 발생')
+      setPreview(form.image_url)
+    } finally {
+      setUploading(false)
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -153,8 +190,34 @@ export default function ProductForm({ product }: Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-navy-800 mb-2">이미지 URL</label>
-          <input name="image_url" value={form.image_url} onChange={handleChange} className={inputClass} placeholder="https://..." />
+          <label className="block text-sm font-medium text-navy-800 mb-2">제품 이미지</label>
+          <div className="flex items-start gap-5">
+            <div className="w-40 h-40 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+              {preview ? (
+                <img src={preview} alt="미리보기" className="w-full h-full object-contain p-2" />
+              ) : (
+                <div className="text-center text-gray-400">
+                  <svg className="w-10 h-10 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p className="text-xs">이미지 없음</p>
+                </div>
+              )}
+            </div>
+            <div className="flex-1 space-y-3">
+              <label className={`block w-full text-center py-3 px-4 rounded-xl border-2 border-dashed cursor-pointer transition text-sm font-semibold ${uploading ? 'border-gray-200 bg-gray-50 text-gray-400' : 'border-navy-200 bg-navy-50 text-navy-700 hover:bg-navy-100'}`}>
+                {uploading ? '업로드 중...' : '파일 선택'}
+                <input type="file" accept="image/*" onChange={handleUpload} disabled={uploading} className="hidden" />
+              </label>
+              <p className="text-xs text-gray-400">JPG, PNG, WebP (최대 5MB)</p>
+              {form.image_url && (
+                <div className="flex items-center gap-2">
+                  <input name="image_url" value={form.image_url} onChange={handleChange} className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-xs text-gray-500" placeholder="이미지 URL" />
+                  <button type="button" onClick={() => { setForm(prev => ({ ...prev, image_url: '' })); setPreview('') }} className="text-xs text-red-400 hover:text-red-600 shrink-0">삭제</button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
