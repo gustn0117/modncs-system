@@ -56,7 +56,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-red-950 via-red-900 to-navy-800 text-white overflow-hidden min-h-[480px] flex items-center">
+      <section className="relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white overflow-hidden min-h-[480px] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1920&h=1080&fit=crop"
@@ -65,8 +65,8 @@ export default async function Home() {
             className="object-cover opacity-25 animate-hero-slide"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-red-950/80 via-red-900/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-red-950/50 via-transparent to-red-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-navy-950/20" />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-16 md:py-20 relative w-full">
           <div className="max-w-3xl">
@@ -343,7 +343,7 @@ export default async function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-red-950/80" />
+          <div className="absolute inset-0 bg-navy-950/80" />
         </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative text-white">
           <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">
