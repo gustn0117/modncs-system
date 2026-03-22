@@ -20,14 +20,14 @@ const services = [
     title: '복합기 렌탈',
     desc: '초기 비용 부담 없이 최신 복합기를 합리적인 월 렌탈료로 이용하세요.',
     href: '/rental',
-    img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=250&fit=crop',
+    img: '/서비스안내1.jpg',
     icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4',
   },
   {
     title: '복합기 구매',
     desc: '캐논 공식 인증 대리점에서 정품 복합기를 최적의 가격에 구매하세요.',
     href: '/purchase',
-    img: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=400&h=250&fit=crop',
+    img: '/서비스안내2.jpg',
     icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z',
   },
   {
@@ -66,38 +66,45 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-navy-950/20" />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-16 md:py-20 relative w-full">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-8 flex-wrap">
-              <span className="bg-gold-400/20 text-gold-300 text-xs font-bold px-4 py-1.5 rounded-full border border-gold-400/25 backdrop-blur-sm">여성기업인증</span>
-              <span className="bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-sm">캐논코리아 공식 인증 대리점</span>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-8 flex-wrap">
+                <span className="bg-gold-400/20 text-gold-300 text-sm font-bold px-5 py-2 rounded-full border border-gold-400/25 backdrop-blur-sm">여성기업인증</span>
+                <span className="bg-white/10 text-white text-sm font-bold px-5 py-2 rounded-full border border-white/15 backdrop-blur-sm">캐논코리아 공식 인증 대리점</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight drop-shadow-lg">
+                세종 · 대전
+                <br />
+                <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">복합기 전문</span> 파트너
+              </h1>
+              <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-xl font-medium">
+                렌탈부터 구매, 유지보수까지 한 곳에서.
+                <br />
+                캐논 공식 인증 대리점 모든CS시스템이 함께합니다.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="#inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-black py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
+                  무료 상담 신청
+                </Link>
+                <Link href="/rental" className="border-2 border-white/30 text-white hover:bg-white/15 font-bold py-4 px-10 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
+                  렌탈 서비스 보기
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight drop-shadow-lg">
-              세종 · 대전 · 충청권
-              <br />
-              <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">복합기 전문</span> 파트너
-            </h1>
-            <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-xl font-medium">
-              렌탈부터 구매, 유지보수까지 한 곳에서.
-              <br />
-              캐논 공식 인증 대리점 모든CS시스템이 함께합니다.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="#inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-black py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
-                무료 상담 신청
-              </Link>
-              <Link href="/rental" className="border-2 border-white/30 text-white hover:bg-white/15 font-bold py-4 px-10 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
-                렌탈 서비스 보기
-              </Link>
-            </div>
-            <div className="mt-12 flex items-center gap-8 text-sm text-white/60 flex-wrap font-semibold">
-              {['무료 방문 상담', '정품 토너 공급', '정기 점검 서비스'].map((text) => (
-                <div key={text} className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  {text}
-                </div>
-              ))}
+            {/* 오른쪽 연락처 */}
+            <div className="lg:min-w-[280px] space-y-4">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+                <p className="text-white/50 text-xs font-semibold mb-1">담당자 휴대폰</p>
+                <a href="tel:010-6603-3432" className="text-white font-black text-2xl hover:text-gold-300 transition">010-6603-3432</a>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+                <p className="text-white/50 text-xs font-semibold mb-1">매장 전화</p>
+                <a href="tel:044-868-4874" className="text-white font-black text-2xl hover:text-gold-300 transition">044-868-4874</a>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10">
+                <p className="text-white/50 text-xs font-semibold mb-1">상담 시간</p>
+                <p className="text-white font-bold text-lg">평일 09:00 ~ 18:00</p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,8 +233,8 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
-                  alt="모던 오피스 환경"
+                  src="/매장 사진.jpg"
+                  alt="모든CS시스템 매장"
                   width={800}
                   height={600}
                   className="object-cover"

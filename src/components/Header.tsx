@@ -12,27 +12,6 @@ const menuItems = [
   { name: '구매 문의', href: '/inquiry' },
 ]
 
-// 캐논 공식 로고 SVG
-function CanonLogo({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 36" className={className} aria-label="Canon">
-      {/* Canon 로고 타원 */}
-      <ellipse cx="60" cy="18" rx="58" ry="16" fill="#CC0000" />
-      {/* Canon 텍스트 */}
-      <text
-        x="60" y="23"
-        textAnchor="middle"
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontWeight="bold"
-        fontSize="18"
-        letterSpacing="2"
-        fill="white"
-      >
-        Canon
-      </text>
-    </svg>
-  )
-}
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -80,14 +59,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* 로고 */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <Image src="/logo-icon.png" alt="모든CS시스템" width={48} height={48} className="h-11 w-auto group-hover:scale-105 transition-transform" priority />
+            <Image src="/new_logo.png" alt="Canon" width={120} height={40} className="h-9 w-auto" priority />
+            <div className="hidden sm:block w-px h-8 bg-gray-200" />
             <div className="flex flex-col">
               <span className="text-gray-900 font-black text-xl leading-tight tracking-tight">모든CS시스템</span>
-              <span className="text-[10px] text-gray-400 font-semibold tracking-wider">PRINTER & COPIER SPECIALIST</span>
-            </div>
-            {/* Canon 로고 뱃지 */}
-            <div className="hidden sm:flex items-center ml-1 pl-3 border-l border-gray-200">
-              <CanonLogo className="h-7 w-auto" />
+              <span className="text-[10px] text-gray-400 font-semibold tracking-wider">CANON 공식 인증 대리점</span>
             </div>
           </Link>
 
