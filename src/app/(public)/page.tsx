@@ -20,14 +20,14 @@ const services = [
     title: '복합기 렌탈',
     desc: '초기 비용 부담 없이 최신 복합기를 합리적인 월 렌탈료로 이용하세요.',
     href: '/rental',
-    img: '/서비스안내1.jpg',
+    img: '/service1.jpg',
     icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4',
   },
   {
     title: '복합기 구매',
     desc: '캐논 공식 인증 대리점에서 정품 복합기를 최적의 가격에 구매하세요.',
     href: '/purchase',
-    img: '/서비스안내2.jpg',
+    img: '/service2.jpg',
     icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z',
   },
   {
@@ -233,7 +233,7 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
                 <Image
-                  src="/매장 사진.jpg"
+                  src="/store.jpg"
                   alt="모든CS시스템 매장"
                   width={800}
                   height={600}
