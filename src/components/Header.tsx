@@ -59,8 +59,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* 로고 */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/canon-logo.svg" alt="Canon" className="h-8 w-auto group-hover:scale-105 transition-transform" />
+            <Image src="/new_logo.png" alt="Canon" width={120} height={30} className="h-8 w-auto" priority />
             <div className="hidden sm:block w-px h-8 bg-gray-200" />
             <div className="flex flex-col">
               <span className="text-gray-900 font-black text-xl leading-[1.2] tracking-tight">모든CS시스템</span>
