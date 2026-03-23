@@ -61,6 +61,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
             <Image src="/new_logo.png" alt="Canon" width={120} height={30} className="h-8 w-auto" priority />
             <div className="hidden sm:block w-px h-8 bg-gray-200" />
+            <Image src="/logo-icon.png" alt="모든CS시스템" width={44} height={44} className="h-10 w-auto" />
             <div className="flex flex-col">
               <span className="text-gray-900 font-black text-xl leading-[1.2] tracking-tight">모든CS시스템</span>
               <span className="text-[10px] text-gray-400 font-semibold tracking-wider">CANON 공식 인증 대리점</span>
