@@ -11,7 +11,7 @@ async function getFeaturedProducts(): Promise<Product[]> {
     .eq('is_active', true)
     .eq('is_popular', true)
     .order('sort_order')
-    .limit(3)
+    .limit(4)
   return data || []
 }
 
@@ -119,7 +119,7 @@ export default async function Home() {
               <h2 className="text-3xl md:text-4xl font-black text-navy-950 tracking-tight mb-4">인기 제품</h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto font-medium">가장 많이 선택하는 베스트 복합기를 만나보세요</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {featured.map((product) => (
                 <Link key={product.id} href={`/products/${product.slug}`} className="group">
                   <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden hover:border-transparent hover:shadow-xl hover:shadow-navy-900/5 hover:-translate-y-1 transition-all duration-300">
