@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     icon: '/logo-icon.png',
     apple: '/logo-icon.png',
   },
+  verification: {
+    other: {
+      'naver-site-verification': '4e681ef73505885b557c9c7a58a86fa7e18d4e4a',
+    },
+  },
 }
 
 export default function RootLayout({
