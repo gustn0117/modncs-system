@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase/client'
 import ProductGrid from '@/components/ProductGrid'
 import type { Product } from '@/lib/types'
+
+export const metadata: Metadata = {
+  title: '복합기 구매',
+  description: '모든CS시스템 캐논 복합기 구매. 캐논코리아 공식 인증 대리점에서 정품 복합기를 최적의 가격에 구매. 설치, 교육, A/S까지 원스톱 서비스.',
+}
 
 async function getPurchaseProducts(): Promise<Product[]> {
   const { data } = await supabase

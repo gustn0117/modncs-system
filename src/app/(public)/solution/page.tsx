@@ -1,4 +1,10 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: '솔루션상품',
+  description: '모든CS시스템 문서 관리 솔루션. 보안 인쇄, 클라우드 연동, 출력 관리 등 사무실 업무 효율을 극대화하는 캐논 소프트웨어 솔루션.',
+}
 
 const solutions = [
   {

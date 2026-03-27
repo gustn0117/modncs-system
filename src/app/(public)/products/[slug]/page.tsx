@@ -1,7 +1,28 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase/client'
 import { notFound } from 'next/navigation'
 import type { Product } from '@/lib/types'
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { data: product } = await supabase
+    .from('products')
+    .select('name, description, category, image_url')
+    .eq('slug', params.slug)
+    .single()
+
+  if (!product) return { title: '제품을 찾을 수 없습니다' }
+
+  return {
+    title: product.name,
+    description: product.description || `${product.name} - ${product.category}. 모든CS시스템에서 렌탈 및 구매 가능. 무료 상담 및 맞춤 견적.`,
+    openGraph: {
+      title: `${product.name} | 모든CS시스템`,
+      description: product.description || `${product.name} - 모든CS시스템`,
+      images: product.image_url ? [{ url: product.image_url }] : undefined,
+    },
+  }
+}
 
 async function getProduct(slug: string): Promise<Product | null> {
   const { data } = await supabase

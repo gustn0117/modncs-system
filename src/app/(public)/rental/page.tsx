@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase/client'
 import ProductGrid from '@/components/ProductGrid'
 import type { Product } from '@/lib/types'
+
+export const metadata: Metadata = {
+  title: '복합기 렌탈',
+  description: '모든CS시스템 복합기 렌탈 서비스. 초기 비용 없이 캐논 최신 복합기를 월 렌탈료로 이용. 세종, 대전, 충청권 무료 방문 설치, 토너 무상 공급, 정기 점검 포함.',
+}
 
 async function getRentalProducts(): Promise<Product[]> {
   const { data } = await supabase
