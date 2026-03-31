@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase/client'
+import { supabaseAdmin } from '@/lib/supabase/server'
 import ProductGrid from '@/components/ProductGrid'
 import type { Product } from '@/lib/types'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: '복합기 렌탈',
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 async function getRentalProducts(): Promise<Product[]> {
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from('products')
     .select('*')
     .or('type.eq.rental,type.eq.both')

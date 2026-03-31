@@ -38,6 +38,12 @@ export default function ProductCard({ product }: { product: Product }) {
               <span className="text-xs text-gray-400">{product.speed}</span>
             </>
           )}
+          {product.print_volume && (
+            <>
+              <span className="text-gray-200">·</span>
+              <span className="text-xs text-gray-400">{product.print_volume}</span>
+            </>
+          )}
         </div>
 
         <h3 className="text-base font-bold text-navy-900 mb-2 group-hover:text-navy-700 transition leading-snug">{product.name}</h3>

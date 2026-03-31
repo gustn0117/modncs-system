@@ -1,9 +1,9 @@
-import { supabase } from '@/lib/supabase/client'
+import { supabaseAdmin } from '@/lib/supabase/server'
 
 export async function GET() {
   const baseUrl = 'https://modncssystem.com'
 
-  const { data: products } = await supabase
+  const { data: products } = await supabaseAdmin
     .from('products')
     .select('name, slug, description, category, updated_at')
     .eq('is_active', true)

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase/client'
+import { supabaseAdmin } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import type { Product } from '@/lib/types'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { data: product } = await supabase
+  const { data: product } = await supabaseAdmin
     .from('products')
     .select('name, description, category, image_url')
     .eq('slug', params.slug)
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 async function getProduct(slug: string): Promise<Product | null> {
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from('products')
     .select('*')
     .eq('slug', slug)
@@ -34,7 +34,7 @@ async function getProduct(slug: string): Promise<Product | null> {
 }
 
 async function getRelatedProducts(product: Product): Promise<Product[]> {
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from('products')
     .select('*')
     .eq('category', product.category)
@@ -108,6 +108,17 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
                       <p className="font-semibold text-navy-900">{product.speed}</p>
                     </div>
                   </div>
+                  {product.print_volume && (
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-violet-50 rounded-lg flex items-center justify-center">
+                        <svg className="w-4 h-4 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-xs">포함 장수</p>
+                        <p className="font-semibold text-navy-900">{product.print_volume}</p>
+                      </div>
+                    </div>
+                  )}
                   {product.type !== 'purchase' && (
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center">

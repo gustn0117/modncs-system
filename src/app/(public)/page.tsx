@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { supabase } from '@/lib/supabase/client'
+import { supabaseAdmin } from '@/lib/supabase/server'
 import type { Product } from '@/lib/types'
 import HomeInquiryForm from '@/components/HomeInquiryForm'
 
+export const dynamic = 'force-dynamic'
+
 async function getFeaturedProducts(): Promise<Product[]> {
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from('products')
     .select('*')
     .eq('is_active', true)

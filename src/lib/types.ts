@@ -6,6 +6,7 @@ export interface Product {
   type: 'rental' | 'purchase' | 'both'
   price_display: string | null
   speed: string | null
+  print_volume: string | null
   tag: string | null
   description: string | null
   features: string[]

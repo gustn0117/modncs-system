@@ -20,6 +20,7 @@ export default function ProductForm({ product }: Props) {
     type: product?.type || 'both',
     price_display: product?.price_display || '',
     speed: product?.speed || '',
+    print_volume: product?.print_volume || '',
     tag: product?.tag || '',
     description: product?.description || '',
     features: product?.features?.join('\n') || '',
@@ -96,6 +97,7 @@ export default function ProductForm({ product }: Props) {
       type: form.type,
       price_display: form.price_display || null,
       speed: form.speed || null,
+      print_volume: form.print_volume || null,
       tag: form.tag || null,
       description: form.description || null,
       features,
@@ -179,6 +181,11 @@ export default function ProductForm({ product }: Props) {
             <label className="block text-sm font-medium text-navy-800 mb-2">출력 속도</label>
             <input name="speed" value={form.speed} onChange={handleChange} className={inputClass} placeholder="26매/분" />
           </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-navy-800 mb-2">포함 장수</label>
+          <input name="print_volume" value={form.print_volume} onChange={handleChange} className={inputClass} placeholder="월 3,000매 포함 / 흑백 5,000매 + 컬러 1,000매" />
         </div>
 
         <div>

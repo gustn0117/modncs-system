@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next'
-import { supabase } from '@/lib/supabase/client'
+import { supabaseAdmin } from '@/lib/supabase/server'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://modncssystem.com'
 
-  const { data: products } = await supabase
+  const { data: products } = await supabaseAdmin
     .from('products')
     .select('slug, updated_at')
     .eq('is_active', true)
