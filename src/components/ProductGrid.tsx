@@ -4,22 +4,23 @@ import { useState } from 'react'
 import ProductCard from './ProductCard'
 import type { Product } from '@/lib/types'
 
+const FIXED_CATEGORIES = ['전체', '복합기', '프린터', '프로젝터']
+
 interface Props {
   products: Product[]
   showCategoryFilter?: boolean
 }
 
 export default function ProductGrid({ products, showCategoryFilter = true }: Props) {
-  const categories = ['전체', ...Array.from(new Set(products.map(p => p.category)))]
   const [activeCategory, setActiveCategory] = useState('전체')
 
   const filtered = activeCategory === '전체' ? products : products.filter(p => p.category === activeCategory)
 
   return (
     <div>
-      {showCategoryFilter && categories.length > 2 && (
+      {showCategoryFilter && (
         <div className="flex flex-wrap gap-2 mb-8 justify-center">
-          {categories.map(cat => (
+          {FIXED_CATEGORIES.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
