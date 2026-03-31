@@ -16,7 +16,7 @@ export default function ProductForm({ product }: Props) {
   const [form, setForm] = useState({
     name: product?.name || '',
     slug: product?.slug || '',
-    category: product?.category || '컬러 복합기',
+    category: product?.category || '복합기',
     type: product?.type || 'both',
     price_display: product?.price_display || '',
     speed: product?.speed || '',
@@ -151,12 +151,9 @@ export default function ProductForm({ product }: Props) {
           <div>
             <label className="block text-sm font-medium text-navy-800 mb-2">카테고리 *</label>
             <select name="category" value={form.category} onChange={handleChange} className={inputClass}>
-              <option value="컬러 복합기">컬러 복합기</option>
-              <option value="흑백 복합기">흑백 복합기</option>
-              <option value="레이저 프린터">레이저 프린터</option>
-              <option value="잉크젯 프린터">잉크젯 프린터</option>
-              <option value="대형 프린터">대형 프린터</option>
-              <option value="솔루션">솔루션</option>
+              <option value="복합기">복합기</option>
+              <option value="프린터">프린터</option>
+              <option value="프로젝터">프로젝터</option>
             </select>
           </div>
           <div>
