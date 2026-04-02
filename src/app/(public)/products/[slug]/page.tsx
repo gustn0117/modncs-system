@@ -4,6 +4,8 @@ import { supabaseAdmin } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import type { Product } from '@/lib/types'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { data: product } = await supabaseAdmin
     .from('products')
