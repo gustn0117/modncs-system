@@ -36,7 +36,12 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.next()
+  // Public pages: no cache to ensure fresh data
+  const response = NextResponse.next()
+  if (!pathname.startsWith('/api') && !pathname.startsWith('/_next')) {
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate')
+  }
+  return response
 }
 
 export const config = {
