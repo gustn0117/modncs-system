@@ -59,7 +59,7 @@ export default async function Home() {
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1920&h=1080&fit=crop"
-            alt=""
+            alt="사무실 복합기 환경 배경 이미지"
             fill
             className="object-cover opacity-25 animate-hero-slide"
             priority
@@ -75,14 +75,14 @@ export default async function Home() {
                 <span className="bg-white/10 text-white text-sm font-bold px-5 py-2 rounded-full border border-white/15 backdrop-blur-sm">캐논코리아 공식 인증 대리점</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight drop-shadow-lg">
-                세종 · 대전
+                <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">모든CS시스템</span>
                 <br />
-                <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">복합기 전문</span> 파트너
+                세종 · 대전 복합기 전문 파트너
               </h1>
               <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-xl font-medium">
                 렌탈부터 구매, 유지보수까지 한 곳에서.
                 <br />
-                캐논 공식 인증 대리점 모든CS시스템이 함께합니다.
+                캐논코리아 공식 인증 대리점이 함께합니다.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="#inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-black py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
@@ -345,7 +345,7 @@ export default async function Home() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=600&fit=crop"
-            alt=""
+            alt="팀 협업 사무실 환경"
             fill
             className="object-cover"
           />
