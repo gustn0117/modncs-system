@@ -6,10 +6,10 @@ const SITE_URL = 'https://modncssystem.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: '모든CS시스템 | 세종 대전 충청 복합기 렌탈 구매 전문',
-    template: '%s | 모든CS시스템',
+    default: '모든CS시스템 - 캐논 복합기 렌탈 구매 전문 (세종·대전·충청)',
+    template: '%s - 모든CS시스템',
   },
-  description: '모든CS시스템 - 세종·대전·충청 캐논 복합기 렌탈·구매 전문. 캐논코리아 공식 인증 대리점.',
+  description: '모든CS시스템은 캐논코리아 공식 인증 대리점으로, 세종·대전·충청권에서 캐논 복합기 렌탈과 구매 서비스를 제공합니다. 모든CS시스템에서 정품 토너, 정기 점검, 무료 방문 상담을 받아보세요.',
   keywords: [
     '모든CS시스템', '복합기 렌탈', '복합기 구매', '프린터 렌탈', '복사기 렌탈',
     '캐논 복합기', '캐논 대리점', 'Canon 복합기',
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: SITE_URL,
     siteName: '모든CS시스템',
-    title: '모든CS시스템 | 세종 대전 충청 복합기 렌탈 구매 전문',
-    description: '세종, 대전, 충청권 캐논 복합기 렌탈 및 구매 전문. 캐논코리아 공식 인증 대리점. 무료 방문 상담 및 맞춤 견적.',
+    title: '모든CS시스템 - 캐논 복합기 렌탈 구매 전문 (세종·대전·충청)',
+    description: '모든CS시스템은 캐논코리아 공식 인증 대리점입니다. 세종·대전·충청권 복합기 렌탈 및 구매, 무료 방문 상담.',
     images: [{ url: '/logo-icon.png', width: 512, height: 512, alt: '모든CS시스템 로고' }],
   },
   twitter: {
     card: 'summary',
-    title: '모든CS시스템 | 세종 대전 충청 복합기 렌탈 구매 전문',
-    description: '세종, 대전, 충청권 캐논 복합기 렌탈 및 구매 전문. 캐논코리아 공식 인증 대리점.',
+    title: '모든CS시스템 - 캐논 복합기 렌탈 구매 전문',
+    description: '모든CS시스템 - 세종·대전·충청 캐논코리아 공식 인증 대리점.',
     images: ['/logo-icon.png'],
   },
   alternates: {
@@ -70,30 +70,64 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: '모든CS시스템',
-              description: '세종, 대전, 충청권 캐논 복합기 렌탈 및 구매 전문 매장. 캐논코리아 공식 인증 대리점.',
-              url: 'https://modncssystem.com',
-              telephone: ['010-6603-3432', '044-868-4874'],
-              address: {
-                '@type': 'PostalAddress',
-                addressRegion: '세종특별자치시',
-                addressCountry: 'KR',
-              },
-              areaServed: ['세종특별자치시', '대전광역시', '충청남도', '충청북도'],
-              priceRange: '$$',
-              image: 'https://modncssystem.com/logo-icon.png',
-              sameAs: [],
-              openingHours: 'Mo-Fr 09:00-18:00',
-              hasOfferCatalog: {
-                '@type': 'OfferCatalog',
-                name: '복합기 렌탈 & 구매',
-                itemListElement: [
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 렌탈' } },
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 구매' } },
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 A/S' } },
-                ],
-              },
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://modncssystem.com/#organization',
+                  name: '모든CS시스템',
+                  alternateName: ['모든씨에스시스템', '모든CS', 'MODNCS', 'MODNCS SYSTEM'],
+                  url: 'https://modncssystem.com',
+                  logo: 'https://modncssystem.com/logo-icon.png',
+                  description: '캐논코리아 공식 인증 대리점. 세종·대전·충청권 복합기 렌탈 및 구매 전문.',
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    telephone: '+82-10-6603-3432',
+                    contactType: 'sales',
+                    areaServed: 'KR',
+                    availableLanguage: 'Korean',
+                  },
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://modncssystem.com/#website',
+                  url: 'https://modncssystem.com',
+                  name: '모든CS시스템',
+                  publisher: { '@id': 'https://modncssystem.com/#organization' },
+                  inLanguage: 'ko-KR',
+                  potentialAction: {
+                    '@type': 'SearchAction',
+                    target: 'https://modncssystem.com/?q={search_term_string}',
+                    'query-input': 'required name=search_term_string',
+                  },
+                },
+                {
+                  '@type': 'LocalBusiness',
+                  '@id': 'https://modncssystem.com/#localbusiness',
+                  name: '모든CS시스템',
+                  alternateName: '모든씨에스시스템',
+                  description: '세종·대전·충청권 캐논 복합기 렌탈 및 구매 전문 매장. 캐논코리아 공식 인증 대리점.',
+                  url: 'https://modncssystem.com',
+                  telephone: ['010-6603-3432', '044-868-4874'],
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: '세종특별자치시',
+                    addressCountry: 'KR',
+                  },
+                  areaServed: ['세종특별자치시', '대전광역시', '충청남도', '충청북도'],
+                  priceRange: '$$',
+                  image: 'https://modncssystem.com/logo-icon.png',
+                  openingHours: 'Mo-Fr 09:00-18:00',
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: '복합기 렌탈 & 구매',
+                    itemListElement: [
+                      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 렌탈' } },
+                      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 구매' } },
+                      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '복합기 A/S' } },
+                    ],
+                  },
+                },
+              ],
             }),
           }}
         />

@@ -77,12 +77,15 @@ export default async function Home() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 tracking-tight drop-shadow-lg">
                 <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">모든CS시스템</span>
                 <br />
-                세종 · 대전 복합기 전문 파트너
+                세종·대전·충청 복합기 전문
               </h1>
-              <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-xl font-medium">
-                렌탈부터 구매, 유지보수까지 한 곳에서.
-                <br />
-                캐논코리아 공식 인증 대리점이 함께합니다.
+              <p className="text-lg md:text-xl text-white/80 mb-4 leading-relaxed max-w-xl font-medium">
+                모든CS시스템은 캐논코리아 공식 인증 대리점으로,
+                세종·대전·충청권에서 복합기 렌탈과 구매를 전문으로 합니다.
+              </p>
+              <p className="text-base text-white/60 mb-10 leading-relaxed max-w-xl">
+                렌탈부터 구매, 정품 토너 공급, 정기 점검, A/S까지
+                모든CS시스템이 원스톱으로 책임집니다.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="#inquiry" className="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-black py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-gold-400/25 hover:shadow-gold-400/40 hover:scale-[1.02]">
