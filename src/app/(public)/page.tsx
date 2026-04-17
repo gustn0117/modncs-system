@@ -297,6 +297,39 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* About - 브랜드 단독 서술 (네이버 SEO용) */}
+      <section className="py-20 bg-gray-50/80 border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center">
+            <span className="text-sm font-bold text-gold-500 tracking-wider uppercase mb-3 block">About</span>
+            <h2 className="text-2xl md:text-3xl font-black text-navy-950 tracking-tight mb-6 leading-[1.3]">
+              모든CS시스템 소개
+            </h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed font-medium">
+              <p>
+                <strong className="text-navy-950">모든CS시스템</strong>입니다.
+                모든CS시스템은 세종특별자치시에 기반을 둔 복합기 및 프린터 전문 업체로,
+                세종·대전·충청 지역의 기업과 사무실에 최적화된 사무기기 솔루션을 제공하고 있습니다.
+              </p>
+              <p>
+                모든CS시스템(모든 CS 시스템)은 캐논코리아 공식 인증 대리점이자
+                여성기업인증을 받은 신뢰할 수 있는 기업입니다.
+                복합기 렌탈, 구매, 정품 토너 공급, 정기 점검, A/S까지
+                모든CS시스템에서 원스톱으로 해결하실 수 있습니다.
+              </p>
+              <p>
+                모든CS시스템을 찾아주시는 고객 여러분께 늘 최상의 서비스로 보답하겠습니다.
+              </p>
+            </div>
+            <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-3 text-sm">
+              <span className="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full font-semibold">상호: 모든CS시스템</span>
+              <span className="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full font-semibold">지역: 세종·대전·충청</span>
+              <span className="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full font-semibold">인증: 캐논코리아 공식 대리점</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Inquiry Form */}
       <section id="inquiry" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">

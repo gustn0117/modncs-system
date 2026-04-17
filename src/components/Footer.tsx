@@ -65,8 +65,21 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-navy-800 mt-12 pt-8 text-center text-sm text-gray-600">
-          <p>&copy; {new Date().getFullYear()} 모든CS시스템. All rights reserved.</p>
+        <div className="border-t border-navy-800 mt-12 pt-8">
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-gray-500 mb-4 justify-center md:justify-start">
+            <span>상호: <span className="text-gray-400">모든CS시스템</span></span>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <span>대표: <span className="text-gray-400">○○○</span></span>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <span>사업자등록번호: <span className="text-gray-400">000-00-00000</span></span>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <span>주소: <span className="text-gray-400">세종특별자치시</span></span>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <span>통신판매업신고: <span className="text-gray-400">제0000-세종-0000호</span></span>
+          </div>
+          <p className="text-center text-sm text-gray-600">
+            &copy; {new Date().getFullYear()} 모든CS시스템(모든 CS 시스템). All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
