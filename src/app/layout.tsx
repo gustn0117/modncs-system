@@ -10,13 +10,7 @@ export const metadata: Metadata = {
     template: '%s - 모든CS시스템',
   },
   description: '모든CS시스템은 캐논코리아 공식 인증 대리점으로, 세종·대전·충청권에서 캐논 복합기 렌탈과 구매 서비스를 제공합니다. 모든CS시스템에서 정품 토너, 정기 점검, 무료 방문 상담을 받아보세요.',
-  keywords: [
-    '모든CS시스템', '복합기 렌탈', '복합기 구매', '프린터 렌탈', '복사기 렌탈',
-    '캐논 복합기', '캐논 대리점', 'Canon 복합기',
-    '세종 복합기', '대전 복합기', '충청 복합기', '세종 프린터', '대전 프린터',
-    '사무실 복합기', '기업 프린터', '복합기 A/S', '토너 공급',
-    '캐논코리아 공식 인증', '여성기업인증',
-  ],
+  keywords: ['모든CS시스템', '복합기 렌탈', '캐논 복합기', '세종 복합기 렌탈', '대전 복합기 렌탈'],
   icons: {
     icon: '/logo-icon.png',
     apple: '/logo-icon.png',
@@ -75,17 +69,63 @@ export default function RootLayout({
                   '@type': 'Organization',
                   '@id': 'https://modncssystem.com/#organization',
                   name: '모든CS시스템',
-                  alternateName: ['모든씨에스시스템', '모든CS', 'MODNCS', 'MODNCS SYSTEM'],
+                  legalName: '모든CS시스템',
+                  alternateName: ['모든씨에스시스템', '모든CS', 'MODNCS', 'MODNCS SYSTEM', '모든 CS 시스템'],
                   url: 'https://modncssystem.com',
                   logo: 'https://modncssystem.com/logo-icon.png',
                   description: '캐논코리아 공식 인증 대리점. 세종·대전·충청권 복합기 렌탈 및 구매 전문.',
-                  contactPoint: {
-                    '@type': 'ContactPoint',
-                    telephone: '+82-10-6603-3432',
-                    contactType: 'sales',
-                    areaServed: 'KR',
-                    availableLanguage: 'Korean',
-                  },
+                  taxID: '710-32-00622',
+                  founder: { '@type': 'Person', name: '박경수' },
+                  foundingDate: '2018-02-01',
+                  sameAs: [
+                    'https://www.bizno.net/article/7103200622',
+                  ],
+                  contactPoint: [
+                    {
+                      '@type': 'ContactPoint',
+                      telephone: '+82-10-6603-3432',
+                      contactType: 'sales',
+                      areaServed: 'KR',
+                      availableLanguage: 'Korean',
+                    },
+                    {
+                      '@type': 'ContactPoint',
+                      telephone: '+82-44-868-4874',
+                      contactType: 'customer service',
+                      areaServed: 'KR',
+                      availableLanguage: 'Korean',
+                    },
+                  ],
+                },
+                {
+                  '@type': 'FAQPage',
+                  '@id': 'https://modncssystem.com/#faq',
+                  mainEntity: [
+                    {
+                      '@type': 'Question',
+                      name: '모든CS시스템은 어떤 회사인가요?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: '모든CS시스템은 캐논코리아 공식 인증 대리점으로, 세종·대전·충청권에서 복합기 렌탈과 구매를 전문으로 하는 업체입니다. 여성기업인증을 받은 신뢰할 수 있는 기업이며, 사업자등록번호는 710-32-00622입니다.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: '모든CS시스템에서 어떤 서비스를 받을 수 있나요?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: '모든CS시스템에서는 캐논 복합기 렌탈, 구매, 정품 토너 공급, 정기 점검, A/S까지 원스톱 서비스를 제공합니다. 무료 방문 상담과 맞춤 견적도 가능합니다.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: '모든CS시스템 상담 전화번호는 무엇인가요?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: '모든CS시스템 상담은 휴대폰 010-6603-3432 또는 매장 044-868-4874로 문의하실 수 있습니다. 평일 09:00~18:00 상담 가능합니다.',
+                      },
+                    },
+                  ],
                 },
                 {
                   '@type': 'WebSite',
